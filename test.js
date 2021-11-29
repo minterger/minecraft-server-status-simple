@@ -7,46 +7,42 @@ const server = require("./src/index");
 
 test("statusJava return object contain online", () => {
   expect(server.statusJava("play.cubecraft.net")).resolves.toHaveProperty(
-    "online",
-    true || false
+    "online"
   );
 });
 
 test("statusJava with port return object contain online", () => {
   expect(
     server.statusJava("play.cubecraft.net", 25565)
-  ).resolves.toHaveProperty("online", true || false);
+  ).resolves.toHaveProperty("online");
 });
 
 test("statusBedrock return contain online", () => {
   expect(server.statusBedrock("nitrofaction.fr")).resolves.toHaveProperty(
-    "online",
-    true || false
+    "online"
   );
 });
 
 test("statuBedrock with port return contain online", () => {
   expect(
     server.statusBedrock("nitrofaction.fr", 19132)
-  ).resolves.toHaveProperty("online", true || false);
+  ).resolves.toHaveProperty("online");
 });
 
 test("status with port return object contain online", () => {
   expect(
     server.status("java", "play.cubecraft.net", 25565)
-  ).resolves.toHaveProperty("online", true || false);
+  ).resolves.toHaveProperty("online");
 });
 
 test("status java return contain online", () => {
   expect(server.status("java", "play.cubecraft.net")).resolves.toHaveProperty(
-    "online",
-    true || false
+    "online"
   );
 });
 
-test("status bedrock return object contain online true or false", () => {
+test("status bedrock return object contain online or false", () => {
   expect(server.status("bedrock", "nitrofaction.fr")).resolves.toHaveProperty(
-    "online",
-    true || false
+    "online"
   );
 });
