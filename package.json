@@ -1,0 +1,25 @@
+{
+  "name": "minecraft-server-status-simple",
+  "version": "1.1.0",
+  "description": "Simple gives minecraft server status from java and bedrock",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest test.js"
+  },
+  "keywords": [
+    "minecraft",
+    "server",
+    "status",
+    "simple",
+    "java",
+    "bedrock"
+  ],
+  "author": "minterger",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
