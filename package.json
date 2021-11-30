@@ -1,6 +1,6 @@
 {
   "name": "minecraft-server-status-simple",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Simple gives minecraft server status from java and bedrock",
   "main": "src/index.js",
   "scripts": {
