@@ -1,9 +1,9 @@
 const axios = require("axios");
 
 // api java server
-const apiJava = "https://api.mcsrvstat.us/2/";
+const apiJava = "https://api.mcsrvstat.us/simple/";
 // api bedrock server
-const apiBedrock = "https://api.mcsrvstat.us/bedrock/2/";
+const apiBedrock = "https://api.mcsrvstat.us/bedrock/simple/";
 
 /**
  * get data from request api
