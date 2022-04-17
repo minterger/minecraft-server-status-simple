@@ -23,15 +23,29 @@ const getData = (api, ip, port) => {
   });
 };
 
+const filterData = (data, filter = []) => {
+  const result = {};
+  filter.forEach((element) => {
+    result[element] = data[element] || false;
+  });
+  return result;
+};
+
 /**
  * request data from mincraft java server
  * @param {String} ip
  * @param {Number} port
+ * @param {Array} show
  * @returns
  */
-const statusJava = async (ip, port = 25565) => {
+const statusJava = async ({ ip, port = 25565, show = [] }) => {
   try {
     const response = await getData(apiJava, ip, port);
+
+    if (show.length > 0) {
+      return filterData(response, show);
+    }
+
     return response;
   } catch (error) {
     return error;
@@ -42,11 +56,17 @@ const statusJava = async (ip, port = 25565) => {
  * request data from mincraft bedrock server
  * @param {String} ip
  * @param {Number} port
+ * @param {Array} show
  * @returns
  */
-const statusBedrock = async (ip, port = 19132) => {
+const statusBedrock = async ({ ip, port = 19132, show = [] }) => {
   try {
     const response = await getData(apiBedrock, ip, port);
+
+    if (show.length > 0) {
+      return filterData(response, show);
+    }
+
     return response;
   } catch (error) {
     return error;
@@ -58,15 +78,21 @@ const statusBedrock = async (ip, port = 19132) => {
  * @param {String} type
  * @param {String} ip
  * @param {Number} port
+ * @param {Array} show
  * @returns
  */
-const status = async (type, ip, port = null) => {
+const status = async ({ type, ip, port = null, show = [] }) => {
+  let result = {};
   if (type === "java") {
-    return statusJava(ip, port || 25565);
+    result = await statusJava(ip, port || 25565);
   }
   if (type === "bedrock") {
-    return statusBedrock(ip, port || 19132);
+    result = await statusBedrock(ip, port || 19132);
   }
+  if (show.length > 0) {
+    return filterData(result, show);
+  }
+  return result;
 };
 
 module.exports = {

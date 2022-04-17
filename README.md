@@ -18,14 +18,40 @@ type eq "java" or "bedrock"
 
 the port is not necessary, default: **25565** Java or **19132** Bedrock
 
+NEW show array in params this its optional
+
+Possible options:
+
 ```js
-mc.status(type, ip, port);
+show: [
+  "online",
+  "ip",
+  "port",
+  "debug",
+  "motd",
+  "players",
+  "version",
+  "protocol",
+  "hostname",
+  "icon",
+  "software",
+  "map",
+  "gamemode",
+  "serverid",
+  "plugins",
+  "mods",
+  "info",
+];
+```
+
+```js
+mc.status({ type, ip, port, show: [] });
 ```
 
 ```js
 const mc = require("minecraft-server-status-simple");
 
-mc.status("java", "play.cubecraft.net", 25565)
+mc.status({ type: "java", ip: "play.cubecraft.net", port: 25565 })
   .then((res) => console.log(res))
   .catch((err) => console.log(err));
 ```
@@ -33,11 +59,11 @@ mc.status("java", "play.cubecraft.net", 25565)
 ### Get the java server info
 
 ```js
-mc.statusJava(ip, port);
+mc.statusJava({ ip, port, show: [] });
 ```
 
 ```js
-mc.statusJava("play.cubecraft.net", 25565)
+mc.statusJava({ ip: "play.cubecraft.net", port: 25565 })
   .then((res) => console.log(res))
   .catch((err) => console.log(err));
 ```
@@ -45,11 +71,11 @@ mc.statusJava("play.cubecraft.net", 25565)
 ### Get the bedrock server info
 
 ```js
-mc.statusBedrock(ip, port);
+mc.statusBedrock({ ip, port, show: [] });
 ```
 
 ```js
-mc.statusBedrock("nitrofaction.fr", 19132)
+mc.statusBedrock({ ip: "nitrofaction.fr", port: 19132 })
   .then((res) => console.log(res))
   .catch((err) => console.log(err));
 ```
