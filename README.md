@@ -51,7 +51,12 @@ mc.status({ type, ip, port, show: [] });
 ```js
 const mc = require("minecraft-server-status-simple");
 
-mc.status({ type: "java", ip: "play.cubecraft.net", port: 25565 })
+mc.status({
+  type: "java",
+  ip: "play.cubecraft.net",
+  port: 25565,
+  show: ["online", "players"],
+})
   .then((res) => console.log(res))
   .catch((err) => console.log(err));
 ```
