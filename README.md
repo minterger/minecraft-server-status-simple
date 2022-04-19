@@ -18,7 +18,7 @@ type eq "java" or "bedrock"
 
 the port is not necessary, default: **25565** Java or **19132** Bedrock
 
-NEW show array in params this is optional
+NEW show array in params, this is optional
 
 Possible options:
 
